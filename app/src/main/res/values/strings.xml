@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">REGISTRO MEDIDROR</string>
+    <string name="btn_registrar_medicion">Registrar Medición</string>
+    <string name="radiobtn_agua">Agua</string>
+    <string name="radiobtn_luz">Luz</string>
+    <string name="radiobtn_gas">Gas</string>
+    <string name="input_medidor">Medidor</string>
+    <string name="inpput_fecha">Fecha</string>
+</resources>
