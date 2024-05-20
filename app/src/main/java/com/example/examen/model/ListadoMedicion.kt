@@ -20,17 +20,22 @@ import androidx.navigation.NavController
 import com.example.examen.R
 
 @Composable
+// pagina principal para listar los registros guardados
 fun pageHome(navController: NavController, viewModel: MedicionViewModel = viewModel()) {
+
+    // variables para identificar que Iconno usaramos
     val gasicon: Int = R.drawable.gasicon
     val aguaicon: Int = R.drawable.aguaicon
     val luzicon: Int = R.drawable.luzicon
 
     val registros by viewModel.allMediciones.collectAsState(initial = emptyList())
 
+    // uso del LazyColumn
     LazyColumn(
         modifier = Modifier.padding(horizontal = 10.dp)
     ) {
         items(registros) { item ->
+            // en base al valor que llega reescribimos la variable decicion para pintar el icono
             val decision = when (item.tipo) {
                 "Agua", "Water" -> aguaicon
                 "Luz", "Electricity" -> luzicon

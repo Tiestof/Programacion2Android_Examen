@@ -67,14 +67,14 @@ dependencies {
     // ViewModels para Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
-    // collectAsStateWithLifecycle() - Flow
+    // Flow
     implementation(libs.androidx.lifecycle.runtime.compose)
 
-    // Room components
+    // Room
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
 
-    // Optional - Kotlin Extensions and Coroutines support for Room
+    // Coroutines - Room
     implementation("androidx.room:room-ktx:2.6.1")
 
     androidTestImplementation(libs.androidx.junit)

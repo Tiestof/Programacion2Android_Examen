@@ -8,7 +8,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun navergar(navController: NavHostController = rememberNavController(), viewModel: MedicionViewModel = viewModel()) {
+fun navergar(navController:
+             NavHostController = rememberNavController(), viewModel: MedicionViewModel = viewModel()) {
     NavHost(navController = navController, startDestination = "inicio") {
         composable("inicio") {
             pageHome(navController = navController, viewModel = viewModel)

@@ -83,6 +83,7 @@ fun formulario(viewModel: MedicionViewModel = viewModel()) {
 }
 
 @Composable
+
 fun RadioButtonRow(selectedOption: String, option: String, onClick: () -> Unit) {
     Row(
         horizontalArrangement = Arrangement.Start,
