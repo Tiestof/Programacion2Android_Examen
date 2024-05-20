@@ -18,3 +18,4 @@ fun navergar(navController: NavHostController = rememberNavController(), viewMod
         }
     }
 }
+

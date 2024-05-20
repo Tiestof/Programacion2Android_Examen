@@ -64,7 +64,8 @@ fun formulario(viewModel: MedicionViewModel = viewModel()) {
         ) {
             Button(onClick = {
                 if (valor.isNotEmpty() && fecha.isNotEmpty() && selectedOption.isNotEmpty()) {
-                    viewModel.addMedicion(Medicion(valor, fecha, selectedOption))
+                    val medicion = MedicionEntity(medidor = valor, fecha = fecha, tipo = selectedOption)
+                    viewModel.insert(medicion)
                     valor = ""
                     fecha = ""
                     selectedOption = ""
@@ -76,11 +77,8 @@ fun formulario(viewModel: MedicionViewModel = viewModel()) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Column {
-            viewModel.registros.forEach { registro ->
-                Text("Medidor: ${registro.medidor}, Fecha: ${registro.fecha}, Tipo: ${registro.tipo}")
-            }
-        }
+        val registros by viewModel.allMediciones.collectAsState(initial = emptyList())
+
     }
 }
 

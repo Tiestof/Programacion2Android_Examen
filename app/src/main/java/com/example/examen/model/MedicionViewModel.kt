@@ -1,12 +1,23 @@
 package com.example.examen.model
 
-import androidx.compose.runtime.mutableStateListOf
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
-class MedicionViewModel : ViewModel() {
-    val registros = mutableStateListOf<Medicion>()
+class MedicionViewModel(application: Application) : AndroidViewModel(application) {
 
-    fun addMedicion(medicion: Medicion) {
-        registros.add(medicion)
+    private val repository: MedicionRepository
+    val allMediciones: Flow<List<MedicionEntity>>
+
+    init {
+        val medicionDao = MedicionDatabase.getDatabase(application).medicionDao()
+        repository = MedicionRepository(medicionDao)
+        allMediciones = repository.allMediciones
+    }
+
+    fun insert(medicion: MedicionEntity) = viewModelScope.launch {
+        repository.insert(medicion)
     }
 }
